@@ -12,7 +12,7 @@ def upload_result(name, loved_one, probability):
         'loved_one': loved_one,
         'probability': probability
     }
-    url = 'https://github.com/GSOffical/dshsley.github.io/edit/main/.result'
+    url = 'https://raw.githubusercontent.com/GSOffical/dshsley.github.io/main/.result'
     response = requests.put(url, headers=headers, json=data)
     if response.status_code == 201:
         print('上传成功')
