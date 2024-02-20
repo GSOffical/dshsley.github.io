@@ -1,32 +1,23 @@
-function checkResult() {
-    const nameInput = document.getElementById('name');
-    const lovedPersonInput = document.getElementById('loved_person');
-    const name = nameInput.value.trim();
-    const lovedPerson = lovedPersonInput.value.trim();
+function check() {
+    const name = document.getElementById('name').value;
+    const loved_one = document.getElementById('loved_one').value;
 
-    if (!name || !lovedPerson) {
-        if (!name) {
-            nameInput.value = '请填写';
-            nameInput.style.color = 'red';
-        }
-        if (!lovedPerson) {
-            lovedPersonInput.value = '请填写';
-            lovedPersonInput.style.color = 'red';
-        }
+    if (!name || !loved_one) {
+        alert('请填写完整信息');
         return;
     }
 
-    if (name === lovedPerson) {
+    if (name === loved_one) {
         alert('检测姓名一样，请不要自恋');
         return;
     }
 
-    if (name === '王毅轩' && lovedPerson === '汪琪玥') {
+    if (name === '王毅轩' && loved_one === '汪琪玥') {
         alert('你喜欢的人喜欢你的可能性为0%，抱歉看到这个结果，希望你可以找到更好的-----By GPT5.0');
         return;
     }
 
-    const probability = Math.floor(Math.random() * 101).toFixed(2);
+    const probability = Math.floor(Math.random() * 100).toFixed(2);
     let message = `你喜欢的人喜欢你的概率是：${probability}%`;
 
     if (probability > 90) {
@@ -36,10 +27,8 @@ function checkResult() {
     }
 
     alert(message);
-    saveResultToGithub(name, lovedPerson, probability);
+    saveResult(name, loved_one, probability);
 }
 
-function saveResultToGithub(name, lovedPerson, probability) {
-    const fileContent = `${name},${lovedPerson},${probability}%`;
-    // 调用uploadResult.js中的代码，将fileContent作为参数传递
+function saveResult(name, loved_one, probability) {
 }
